@@ -507,7 +507,8 @@ a {
     }
 
     .dark-mode3 {
-        --text-color: #000000;
+        background-color: #0b061f !important;
+        --text-color: #fdfdfd !important;
     }
 
     header .navlist.active {
