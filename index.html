@@ -7,77 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio Website</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
     <style>
-        :root {
-            --primary-color: #000000;
-            --btn-bg: #000;
-            --btn-text: #fff;
-            --btn-hover-bg: #333;
-        }
-
-        body {
-            color: var(--primary-color);
-            font-family: 'Poppins', sans-serif;
-        }
-
-        a {
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: #555;
-        }
-
-        .btn {
-            background-color: var(--btn-bg);
-            color: var(--btn-text);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn:hover {
-            background-color: var(--btn-hover-bg);
-        }
-
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
-            margin-top: 30px;
+            margin: 30px 0;
         }
 
         .skill {
-            background-color: #f8f9fa;
+            background: #f4f4f4;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 8px;
             text-align: center;
             font-weight: 500;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
         .skill:hover {
             transform: translateY(-5px);
-            background-color: #e9ecef;
-        }
-
-        header {
-            margin-top: 0 !important;
+            background-color: #e8e8e8;
         }
     </style>
 </head>
 
-<body class="bg-light">
-    <header class="shadow-sm p-3 mb-5 bg-white rounded sticky-top">
-        <a href="#" class="logo fw-bold fs-4">PORTFOLIO</a>
+<body>
+    <header>
+        <a href="#" class="logo">PORTFOLIO</a>
         <div class="bx bx-menu" id="menu-icon"></div>
         <ul class="navlist">
             <li><a href="#home">Home</a></li>
@@ -86,17 +50,22 @@
             <li><a href="#portfolio">Portfolio</a></li>
             <li><a href="#skills">Skills</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><div class="bx bx-moon" id="darkMode-icon"></div></li>
+            <li>
+                <div class="bx bx-moon" id="darkMode-icon"></div>
+            </li>
         </ul>
     </header>
 
+    <!-- Home Section -->
     <section class="home" id="home">
         <div class="home-text">
             <h5>Hello guys!</h5>
             <h1>I'm Litikshma Prajapati</h1>
             <span id="element"></span>
-            <p>I’m a Full Stack Web Developer from Bhopal, Madhya Pradesh with hands-on experience in building scalable, responsive web applications using modern technologies.</p>
-            <a href="https://www.linkedin.com/in/litikshma-prajapati/" class="btn" target="_blank"><i class='bx bxl-linkedin-square'></i>LinkedIn</a>
+            <p>I’m a Full Stack Web Developer from Bhopal, Madhya Pradesh with hands-on experience in building scalable,
+                responsive web applications using modern technologies.</p>
+            <a href="https://www.linkedin.com/in/litikshma-prajapati/" class="btn" target="_blank"><i
+                    class='bx bxl-linkedin-square'></i>LinkedIn</a>
             <a href="https://github.com/litikshma9056" class="btn" target="_blank"><i class='bx bxl-github'></i>GitHub</a>
         </div>
         <div class="home-img">
@@ -104,6 +73,7 @@
         </div>
     </section>
 
+    <!-- About Section -->
     <section class="about" id="about">
         <div class="about-image">
             <img src="images/photo5.avif" alt="image">
@@ -111,93 +81,92 @@
         <div class="about-text">
             <span>About Me</span>
             <ul>
-                <h3>Full Stack Development Journey</h3>
-                <li>I'm a dedicated Full Stack Developer with a strong foundation in both frontend and backend technologies. I specialize in building full-featured, responsive web applications using modern tools like PHP, Node.js, MySQL, JavaScript, and Bootstrap.</li>
-                <h3>Technologies I Work With</h3>
-                <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript, Bootstrap 5, jQuery</li>
-                <li><strong>Backend:</strong> PHP, Node.js, Express.js</li>
-                <li><strong>Database:</strong> MySQL</li>
-                <li><strong>Tools:</strong> Git, GitHub, VS Code, cPanel</li>
-                <h3>Learning & Growth</h3>
-                <li>I continuously upskill through internships, certifications, and personal projects. I'm always open to collaborations, innovation, and solving real-world problems with code.</li>
+                <h3>Who I Am</h3>
+                <li>I’m a passionate full stack web developer with a strong foundation in frontend and backend development. I build interactive, fast, and scalable web applications.</li>
+                <h3>Tech Stack</h3>
+                <li>Frontend: HTML5, CSS3, JavaScript, jQuery, Bootstrap</li>
+                <li>Backend: PHP, Node.js, Express.js</li>
+                <li>Database: MySQL</li>
+                <li>Deployment: GitHub, cPanel, Render</li>
+                <h3>Vision</h3>
+                <li>I enjoy solving real-world problems through code and building software that is both beautiful and functional.</li>
             </ul>
-            <a href="https://drive.google.com/file/d/1QoRxVn14QP3eX39z9Ft78SZpAoqtEoE3/view?usp=drive_link" target="_blank" class="btn">Download CV</a>
+            <a href="https://drive.google.com/file/d/1QoRxVn14QP3eX39z9Ft78SZpAoqtEoE3/view?usp=drive_link"
+                target="_blank" class="btn">Download CV</a>
         </div>
     </section>
 
+    <!-- Services Section -->
     <section class="service" id="services">
         <div class="heading">
             <span>Services</span>
             <h2>My Awesome Services</h2>
         </div>
+
         <div class="service-container">
             <div class="row">
-                <i class="bx bx-desktop"></i>
+                <i class="bx bx-code-block"></i>
                 <h3>Full Stack Development</h3>
-                <p>Design and develop complete web applications with frontend and backend integration.</p>
+                <p>Complete frontend and backend solutions with modern frameworks and tools.</p>
             </div>
             <div class="row">
-                <i class='bx bx-code-block'></i>
-                <h3>Custom Web Apps</h3>
-                <p>Develop dynamic apps with user authentication, dashboards, APIs, and secure databases.</p>
-            </div>
-            <div class="row">
-                <i class="bx bx-layer"></i>
-                <h3>UI/UX Engineering</h3>
-                <p>Design modern, responsive interfaces with usability at the core.</p>
-            </div>
-            <div class="row">
-                <i class='bx bx-server'></i>
-                <h3>Backend APIs</h3>
-                <p>Develop scalable, secure RESTful services using PHP and Node.js.</p>
+                <i class='bx bx-layout'></i>
+                <h3>UI/UX Design</h3>
+                <p>Designing clean, minimal, and user-friendly interfaces with responsive layouts.</p>
             </div>
             <div class="row">
                 <i class='bx bx-cloud-upload'></i>
                 <h3>Hosting & Deployment</h3>
-                <p>Deploy and manage websites using cPanel, Vercel, Render, or GitHub Pages.</p>
+                <p>Deploying secure and scalable websites using cPanel, Render, and custom domains.</p>
             </div>
             <div class="row">
-                <i class='bx bx-message-rounded-dots'></i>
+                <i class='bx bx-chat'></i>
                 <h3>Chatbot Integration</h3>
-                <p>Enable businesses to connect with customers via WhatsApp chatbots.</p>
+                <p>Developing custom chatbots using WhatsApp for customer interaction and automation.</p>
             </div>
         </div>
     </section>
 
+    <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
         <div class="heading">
             <span>Portfolio</span>
-            <h2>My Awesome Projects</h2>
+            <h2>My Full Stack Projects</h2>
         </div>
+
         <div class="portfolio-container">
             <div class="box box-one">
                 <div class="inner">
-                    <h6>Development</h6>
-                    <h3>Mrignayanee Club Website</h3>
+                    <h6>Full Stack</h6>
+                    <h3>Mrignayanee Club Portal</h3>
                     <button type="button"><a href="https://mrignayaneeclub.com" target="_blank">Visit Site</a></button>
                 </div>
             </div>
+
             <div class="box box-two">
                 <div class="inner">
-                    <h6>Development</h6>
-                    <h3>MetaConsol Official Site</h3>
+                    <h6>Full Stack</h6>
+                    <h3>MetaConsol Business Site</h3>
                     <button type="button"><a href="https://metaconsol.in" target="_blank">Visit Site</a></button>
                 </div>
             </div>
+
             <div class="box box-three">
                 <div class="inner">
-                    <h6>Development</h6>
+                    <h6>Full Stack</h6>
                     <h3>Silk Estates Digital Menu</h3>
                     <button type="button"><a href="https://silkestatesmenucard.onrender.com" target="_blank">Visit Site</a></button>
                 </div>
             </div>
+
             <div class="box box-four">
                 <div class="inner">
-                    <h6>Development</h6>
+                    <h6>Frontend</h6>
                     <h3>Portfolio Website</h3>
                     <button type="button"><a href="https://litikshmaportfolio.netlify.app" target="_blank">Visit Site</a></button>
                 </div>
             </div>
+
             <div class="box box-five">
                 <div class="inner">
                     <h6>Chatbot</h6>
@@ -208,6 +177,24 @@
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="heading">
+            <span>Skills</span>
+            <h2>Technologies I Work With</h2>
+        </div>
+        <div class="skills-container">
+            <div class="skill">HTML5 / CSS3 / JavaScript</div>
+            <div class="skill">PHP / Node.js / Express.js</div>
+            <div class="skill">MySQL / Database Design</div>
+            <div class="skill">Bootstrap / jQuery</div>
+            <div class="skill">Git / GitHub / VS Code</div>
+            <div class="skill">cPanel / Hosting / Deployment</div>
+            <div class="skill">WhatsApp Bot / Chatbot Libraries</div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
     <section class="cta">
         <div class="cta-text">
             <h2>Let's discuss your idea</h2>
@@ -218,58 +205,39 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section class="skills py-5 bg-white" id="skills">
-        <div class="container">
-            <div class="heading text-center">
-                <span>Skills</span>
-                <h2>Technologies I Use</h2>
-            </div>
-            <div class="skills-container">
-                <div class="skill">HTML5 / CSS3 / JavaScript</div>
-                <div class="skill">PHP / Node.js / Express.js</div>
-                <div class="skill">MySQL / Database Design</div>
-                <div class="skill">Bootstrap 5 / jQuery</div>
-                <div class="skill">Git / GitHub / VS Code</div>
-                <div class="skill">cPanel / Hosting / Deployment</div>
-                <div class="skill">WhatsApp Bot / Chatbot Libraries</div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="heading">
             <span>Contact Me</span>
-            <h3>I'm always open to collaborations and exciting new projects. If you're interested in working together or discussing technology, don't hesitate to reach out.</h3>
+            <h3>I’m always open to collaborations and exciting new projects. Let’s build something amazing together.</h3>
         </div>
+
         <div class="contact-container" id="contacts">
             <div class="con-box">
                 <div class="icon"><a href="#"><i class='bx bxs-phone'></i></a></div>
                 <h3>Phone</h3>
-                <h6><a href="#" target="_blank">(+91)9876543210</a></h6>
+                <h6><a href="#" target="_blank">(+91) 9876543210</a></h6>
             </div>
+
             <div class="con-box">
                 <div class="icon"><a href="mailto:example@email.com" target="_blank"><i class='bx bxs-envelope'></i></a></div>
                 <h3>Email</h3>
                 <h6><a href="mailto:example@email.com" target="_blank">example@email.com</a></h6>
             </div>
+
             <div class="con-box">
                 <div class="icon"><a href="#contact"><i class='bx bx-current-location'></i></a></div>
                 <h3>Location</h3>
-                <h6><a href="#contact">Bhopal, Madhya Pradesh</a></h6>
+                <h6>Bhopal, Madhya Pradesh</h6>
             </div>
         </div>
     </section>
 
     <div class="bottom">
-        <p>Copyright &copy;
-            <script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed by <a href="#">Litikshma Prajapati</a>
-        </p>
+        <p>&copy; <script>document.write(new Date().getFullYear());</script>. All Rights Reserved. Designed by <a href="#">Litikshma Prajapati</a></p>
     </div>
 
     <script type="text/javascript" src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
         var typed = new Typed('#element', {
