@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,8 +36,7 @@
       --shadow: 0 8px 24px rgba(16,24,40,.1);
     }
 
-    html, body { height: 100%; }
-    body {
+    html, body {
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       background: radial-gradient(1200px 600px at 10% -10%, rgba(108,99,255,.2), transparent 60%),
                   radial-gradient(1000px 500px at 110% 10%, rgba(0,212,255,.18), transparent 60%),
@@ -46,6 +45,19 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
+
+    /* Light-theme background: reduce or remove blue band */
+    [data-theme="light"] body {
+      background: var(--surface);
+    }
+
+    /* Optional: keep a very subtle wash in light mode (uncomment to use)
+    [data-theme="light"] body { 
+      background: radial-gradient(900px 480px at 10% -30%, rgba(108,99,255,.06), transparent 60%),
+                  radial-gradient(800px 420px at 110% -20%, rgba(0,212,255,.05), transparent 60%),
+                  var(--surface);
+    }
+    */
 
     /* ======= Utility & motion ======= */
     .content-visibility { content-visibility: auto; contain-intrinsic-size: 1000px 800px; }
@@ -70,7 +82,7 @@
     .nav-link:hover::after, .nav-link.active::after { transform: scaleX(1); }
 
     /* ======= Hero ======= */
-    .hero { position: relative; padding-top: 8rem; padding-bottom: 5rem; }
+    .hero { position: relative; padding-top: 2rem; padding-bottom: 5rem; isolation: isolate; }
     .glow {
       position:absolute; inset: -20% -10% auto -10%; height: 60vh; z-index:-1;
       background: radial-gradient(closest-side at 20% 20%, rgba(108,99,255,.25), transparent 60%),
@@ -119,12 +131,28 @@
     /* ======= Parallax shapes ======= */
     .shape { position:absolute; filter: blur(4px); opacity:.45; pointer-events:none; }
     .shape.s1 { top: -40px; right: 10%; width: 140px; height: 140px; background: radial-gradient(circle at 30% 30%, var(--brand), transparent 60%); border-radius: 50%; }
-    .shape.s2 { bottom: -30px; left: 6%; width: 220px; height: 220px; background: radial-gradient(circle at 65% 35%, var(--brand-2), transparent 60%); border-radius: 50%; }
-
-    /* ======= Reduced motion ======= */
+    .shape.s2 { bottom: -30px; left: 6%; width: 220px; height: 220px; background: radial-gradient(circle at 65% 35%, var(--brand-2), transparent 60%); border-radius: 50%; }    /* ======= Reduced motion ======= */
     @media (prefers-reduced-motion: reduce) {
       .tilt > .tilt-inner, .fade-up { transition: none !important; }
     }
+
+    /* ======= Fixes: dark-mode text + image contain ======= */
+    :root, [data-bs-theme="dark"] {
+      /* Tell Bootstrap it is dark and map its vars to our scheme so text is readable */
+      --bs-body-bg: var(--surface);
+      --bs-body-color: var(--text);
+      --bs-secondary-color: color-mix(in srgb, var(--text) 70%, transparent);
+      --bs-tertiary-color: color-mix(in srgb, var(--text) 55%, transparent);
+    }
+    [data-theme="light"], [data-bs-theme="light"] {
+      --bs-body-bg: var(--surface);
+      --bs-body-color: var(--text);
+      --bs-secondary-color: color-mix(in srgb, var(--text) 62%, transparent);
+    }
+    /* Utility for safe image fitting */
+    .object-contain { object-fit: contain; }
+    .object-cover { object-fit: cover; }
+    .hero-img { object-position: center top; }
   </style>
 </head>
 <body>
@@ -160,16 +188,16 @@
             <p class="lead mb-4 text-body-secondary">Full‑stack developer crafting responsive, performant web apps with PHP, Node.js, MySQL & Bootstrap 5 — focused on clean UI, scalable backends, and delightful UX.</p>
             <div class="d-flex flex-wrap gap-2">
               <a class="btn btn-brand btn-lg" href="#projects">View Live Projects</a>
-              <a class="btn btn-outline-light btn-lg" target="_blank" href="https://github.com/litikshma9056" rel="noopener">GitHub</a>
-              <a class="btn btn-outline-light btn-lg" target="_blank" href="https://www.linkedin.com/in/litikshma-prajapati/" rel="noopener">LinkedIn</a>
+              <a class="btn btn-ghost btn-lg" target="_blank" href="https://github.com/litikshma9056" rel="noopener">GitHub</a>
+              <a class="btn btn-ghost btn-lg" target="_blank" href="https://www.linkedin.com/in/litikshma-prajapati/" rel="noopener">LinkedIn</a>
             </div>
           </div>
         </div>
         <div class="col-12 col-lg-5">
           <div class="tilt position-relative">
             <div class="tilt-inner p-3">
-              <div class="ratio ratio-1x1 rounded-4 overflow-hidden border" style="background:linear-gradient(120deg,#1b1f2a,#0f1320); border-color: var(--glass)">
-                <img loading="lazy" src="images/photo3.png" alt="Portrait of Litikshma" class="w-100 h-100 object-fit-cover" />
+              <div class="rounded-4 overflow-hidden border" style="background:linear-gradient(120deg,#1b1f2a,#0f1320); border-color: var(--glass); aspect-ratio: 3/4;">
+                <img loading="lazy" src="images/photo3.png" alt="Portrait of Litikshma" class="w-100 h-100 hero-img object-contain" />
               </div>
               <div class="shape s1" aria-hidden="true"></div>
               <div class="shape s2" aria-hidden="true"></div>
@@ -460,11 +488,14 @@
     const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     const initial = savedTheme || (prefersLight ? 'light' : 'dark');
     root.setAttribute('data-theme', initial);
+    // Keep Bootstrap in sync to get correct text-body-secondary colors
+    document.documentElement.setAttribute('data-bs-theme', initial === 'light' ? 'light' : 'dark');
     toggle.textContent = initial === 'light' ? '🌙' : '☀️';
     toggle.addEventListener('click', () => {
       const current = root.getAttribute('data-theme');
       const next = current === 'light' ? 'dark' : 'light';
       root.setAttribute('data-theme', next);
+      document.documentElement.setAttribute('data-bs-theme', next === 'light' ? 'light' : 'dark');
       localStorage.setItem('theme', next);
       toggle.textContent = next === 'light' ? '🌙' : '☀️';
     });
